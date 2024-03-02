@@ -12,16 +12,17 @@ params = {'info_hash':  tf.info_hash,'peer_id':peer_id, 'port':"6881", 'uploaded
 # print(vars(tf))
 
 if tf.announce_list == None:
-    response = torrent_tracker.get_request(tf.announce, params)
-    try:
+
+    # try:
+        response = torrent_tracker.get_request(tf.announce, params)
         print(response)
-    except:
-        print("error")
+    # except:
+    #     print("error")
 
 else:
     for a in tf.announce_list:
-        response = torrent_tracker.get_request(a, params)
         try:
+            response = torrent_tracker.get_request(a, params)
             print(response)
         except:
             print("error")
