@@ -1,9 +1,11 @@
+import asyncio
+
+
 import requests
 import struct
 import socket
 
-def get_request(url, params):
-
+async def get_request(url, params):
     response = requests.get(url=url, params=params)
     action, transaction_id, interval, leechers, seeders = struct.unpack('!IIIII', response.text.encode()[:20])  # 20 bytes are the fixed amount
     ip_and_port_list = []
@@ -17,3 +19,13 @@ def get_request(url, params):
     response_dict = {"action": action, "transaction_id": transaction_id, "interval": interval, "leechers": leechers, "seeders": seeders, "ip_and_port_list": ip_and_port_list}
     return response_dict
 
+
+
+def request():
+    ...
+
+def parse_response():
+    ...
+
+def handle_tracker_communication():
+    ...

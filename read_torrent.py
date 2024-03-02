@@ -7,7 +7,7 @@ from torrent_file import TorrentFile
 
 def read_torrent(torrent_path):
     if torrent_path.lower().endswith('.torrent') == False:
-        print("This file isn't a torrent")
+        print("This file is not a torrent")
         exit()
     if isfile(torrent_path) == False:
         print("Torrent file not found")
